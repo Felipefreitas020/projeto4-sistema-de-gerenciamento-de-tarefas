@@ -22,6 +22,11 @@ function concluir(index) {
   atualizar();
 }
 
+function remover(index) {
+  tarefas.splice(index, 1);
+  atualizar();
+}
+
 function atualizar() {
   const lista = document.getElementById("lista");
 
@@ -32,7 +37,12 @@ function atualizar() {
 
     li.innerHTML = `
       ${tarefa.concluida ? `<s>${tarefa.texto}</s>` : tarefa.texto}
-      <button onclick="concluir(${index})">Concluir</button>
+      <button onclick="concluir(${index})">
+        Concluir
+      </button>
+      <button onclick="remover(${index})">
+        Remover
+      </button>
     `;
 
     lista.appendChild(li);
